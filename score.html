@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>个人成绩查询</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <!-- Mimic Internet Explorer 7 -->
+      <meta http-equiv="X-UA-Compatible" content="IE=7"> <!-- IE7 mode -->
+    <link href="/academic/styles/default/css/text.css" rel="stylesheet" type="text/css">
+    <link href="/academic/styles/default/css/main.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" language="javascript" src="/academic/styles/js/jquery.js" ></script>
+    <script type="text/javascript" language="javascript" src="/academic/styles/js/function.js" ></script>
+    <script type="text/javascript" language="javascript" src="/academic/styles/js/common.js" ></script>
+    <script type="text/javascript" language="javascript" src="/academic/styles/js/selectDate.js" ></script>
+    <script type="text/javascript" language="javascript" src="/academic/styles/js/selectTime.js" ></script>
+    <script type="text/javascript" language="javascript" src="/academic/styles/default/js/page.js" ></script>
+    <script type="text/javascript" language="javascript" src="/academic/styles/js/selectDateTime.js" ></script>
+       <script type="text/javascript" language="javascript" src="/academic/styles/js/j_common.js" ></script>
+  </head>                                
+  <body>
+    <center>
+<script language="javascript" src="../../styles/js/jquery.js"></script>
+<script type="text/javascript">
+         function changeYearTerm(year, term) {
+        $.ajax({
+            url:"/academic/calendar/showCalendarYearTerm.do?type=alias&yearId=" + year + "&termId=" + term,
+            success:function (htmlText) {
+                $("#alias").html(htmlText);
+            }
+        });
+    }
+    </script>
+<script type="text/javascript">
+    function sort(sortColumnValue) {
+        document.form1.sortColumn.value = sortColumnValue;
+        document.form1.submit();
+    }
+
+</script>
+<div class="title"><span class="left"><em>
+    个人成绩查询
+</em></span> <span class="right">&nbsp;</span></div>
+<form name="form1" method="post" action="">
+    <table class="form" cellspacing="0" cellpadding="0">
+        <tr>
+            <td width="35%">
+                学年学期
+                <select name="year" onchange="changeYearTerm(this.options[this.selectedIndex].value,
+                this.form.term.options[this.form.term.selectedIndex].value)">
+                    <option value="">
+                        全部
+                    </option>
+                    
+                    <option value="34" selected>2014
+                    </option>
+                    
+                    <option value="26" >2006
+                    </option>
+                    
+                    <option value="27" >2007
+                    </option>
+                    
+                    <option value="28" >2008
+                    </option>
+                    
+                    <option value="29" >2009
+                    </option>
+                    
+                    <option value="30" >2010
+                    </option>
+                    
+                    <option value="31" >2011
+                    </option>
+                    
+                    <option value="32" >2012
+                    </option>
+                    
+                    <option value="33" >2013
+                    </option>
+                    
+                    <option value="35" >2015
+                    </option>
+                    
+                    <option value="36" >2016
+                    </option>
+                    
+                    <option value="37" >2017
+                    </option>
+                    
+                    <option value="38" >2018
+                    </option>
+                    
+                    <option value="39" >2019
+                    </option>
+                    
+                    <option value="40" >2020
+                    </option>
+                    
+                    <option value="41" >2021
+                    </option>
+                    
+                    <option value="42" >2022
+                    </option>
+                    
+                </select>
+                <select name="term" onchange="changeYearTerm(this.form.year.options[this.form.year.selectedIndex].value,
+                this.options[this.selectedIndex].value)">
+                    <option value="">
+                        全部
+                    </option>
+                    
+                    <option value="2" selected>秋
+                    </option>
+
+                    
+                    <option value="1" >春
+                    </option>
+
+                    
+                </select>
+                <span id="alias">
+
+                </span>
+
+                <script type="text/javascript">
+                    changeYearTerm(document.form1.year.options[document.form1.year.selectedIndex].value,
+                            document.form1.term.options[document.form1.term.selectedIndex].value)
+                </script>
+            </td>
+
+            <td><input type="checkbox" name="failedStatus" value="1" />
+                未通过课程
+            </td>
+
+            <td><input type="checkbox" name="maxStatus" value="1" />
+                最高分
+            </td>
+
+            <td>
+                <input name="para" type="hidden" id="para" value="0"/>
+
+                <input name="sortColumn" type="hidden" id="sortColumn" value=""/>
+                <input type="submit" name="Submit" class="button" value="查询">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<br>
+
+<table width="100%" class="datalist">
+
+    <tr>
+        
+
+        
+        <th>
+            
+            
+            学年
+            
+        </th>
+        
+        <th>
+            
+            
+            学期
+            
+        </th>
+        
+        <th>
+            
+            
+            课程号
+            
+        </th>
+        
+        <th>
+            
+            
+            课程名
+            
+        </th>
+        
+        <th>
+            
+            
+            课序号
+            
+        </th>
+        
+        <th>
+            
+            
+            课组
+            
+        </th>
+        
+        <th>
+            
+            
+            总评
+            
+        </th>
+        
+        <th>
+            
+            
+            学分
+            
+        </th>
+        
+        <th>
+            
+            
+            学时
+            
+        </th>
+        
+        <th>
+            
+            
+            选课属性
+            
+        </th>
+        
+        <th>
+            
+            
+            备注
+            
+        </th>
+        
+        <th>
+            
+            
+            考试性质
+            
+        </th>
+        
+        <th>
+            
+            
+            及格标志
+            
+        </th>
+        
+    </tr>
+
+
+    
+    <tr>
+        
+
+        
+        <td>2014
+        </td>
+        
+        <td>秋
+        </td>
+        
+        <td>7101A01E2
+        </td>
+        
+        <td>英语（二）
+        </td>
+        
+        <td>666
+        </td>
+        
+        <td>公共基础课[2010]（E）
+        </td>
+        
+        <td>60        </td>
+        
+        <td>4.0
+        </td>
+        
+        <td>64.0
+        </td>
+        
+        <td>必修
+        </td>
+        
+        <td>正常
+        </td>
+        
+        <td>重修
+        </td>
+        
+        <td>及格
+        </td>
+        
+    </tr>
+    
+
+</table>
+
+
+
+    </center>
+  </body>
+</html>
+
+
+
+
+
+
+
